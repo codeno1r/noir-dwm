@@ -30,8 +30,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Google Chrome",  NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           0 },
+	{ "Code",  NULL,       NULL,       1 << 1,       0,           0 },
+	{ "Google-chrome",  NULL,       NULL,       1 << 2,       0,           0 },
+	{ "Roam",  NULL,       NULL,       1 << 4,       0,           0 },
+	{ "zoom",  NULL,       NULL,       1 << 6,       0,           0 },
+	{ "WebWork Tracker",  NULL,       NULL,       1 << 8,       1,           0 },
 };
 
 /* layout(s) */
