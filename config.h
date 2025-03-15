@@ -91,6 +91,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY|ShiftMask,             XK_n,  spawn,        SHCMD("nordlayer.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -104,8 +105,8 @@ static const Key keys[] = {
 	{ 0,             		XF86XK_AudioMute,					spawn,           SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
 	{ 0,             		XF86XK_AudioRaiseVolume,	spawn,           SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },
 	{ 0,             		XF86XK_AudioLowerVolume,	spawn,           SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
-	// { MODKEY,             		XF86XK_MonBrightnessUp,		spawn,           {.v = brupcmd} },
-	// { MODKEY,             		XF86XK_MonBrightnessDown,	spawn,           {.v = brdowncmd} },
+	{ 0,             		XF86XK_MonBrightnessUp,		spawn,           SHCMD("brightnessctl s 25+; kill -48 $(pidof dwmblocks)") },
+	{ 0,             		XF86XK_MonBrightnessDown,		spawn,           SHCMD("brightnessctl s 25-; kill -48 $(pidof dwmblocks)") },
 };
 
 /* button definitions */
