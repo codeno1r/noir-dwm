@@ -7,7 +7,7 @@ static const unsigned int gappx     = 0;        /* gaps between windows */
 static const unsigned int snap      = 1;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "MesloLGS Nerd Font Mono:size=12" };
+static const char *fonts[]          = { "MesloLGS Nerd Font:size=12", "Noto Color Emoji:size=12", "NotoSans Nerd Font:size=12" };
 static const char dmenufont[]       = "MesloLGS Nerd Font Mono:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -20,12 +20,12 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray4 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_gray5 },
 };
-static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+// static const char *mutevol[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
+// static const char *upvol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
+// static const char *downvol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "💬", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -104,9 +104,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY,             		XF86XK_AudioMute,		spawn,           {.v = mutecmd} },
-	{ MODKEY,             		XF86XK_AudioLowerVolume,	spawn,           {.v = voldowncmd} },
-	{ MODKEY,             		XF86XK_AudioRaiseVolume, 	spawn,           {.v = volupcmd} },
+	{ 0,             		XF86XK_AudioMute,		spawn,           SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
+	{ 0,             		XF86XK_AudioRaiseVolume,	spawn,           SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },
+	{ 0,             		XF86XK_AudioLowerVolume,	spawn,           SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
 	// { MODKEY,             		XF86XK_MonBrightnessUp,		spawn,           {.v = brupcmd} },
 	// { MODKEY,             		XF86XK_MonBrightnessDown,	spawn,           {.v = brdowncmd} },
 };
