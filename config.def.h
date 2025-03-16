@@ -35,13 +35,14 @@ static const Rule rules[] = {
 	{ "Google-chrome",  NULL,       NULL,       1 << 2,       0,           0 },
 	{ "Roam",  NULL,       NULL,       1 << 3,       0,           0 },
 	{ "zoom",  NULL,       NULL,       1 << 5,       0,           0 },
-	{ "WebWork Tracker",  NULL,       NULL,       1 << 9,       1,           0 },
+	{ "WebWork Tracker",  NULL,       NULL,       1 << 8,       1,           0 },
 	{ "mpv",  NULL,       NULL,       1 << 6,       0,           0 },
 	{ "Virt-manager",  NULL,       NULL,       1 << 7,       0,           0 },
 
 	{ "firefox",  NULL,       NULL,       1 << 2,       0,           1 },
 	{ "WhatSie",  NULL,       NULL,       1 << 3,       0,           1 },
 	{ "ZapZap",  NULL,       NULL,       1 << 3,       0,           1 },
+	{ "discord",  NULL,       NULL,       1 << 3,       0,           1 },
 };
 
 /* layout(s) */
@@ -102,7 +103,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	{ MODKEY|ShiftMask,             XK_n,  spawn,        SHCMD("nordlayer.sh") },
-	{ MODKEY|ShiftMask,             XK_s,  spawn,        SHCMD("flameshot gui --clipboard --path=Images/FlameShot/") },
+	{ MODKEY|ShiftMask,             XK_s,  spawn,        SHCMD("flameshotgui.sh") },
 	{ MODKEY|ShiftMask,             XK_m,  spawn,        SHCMD("win10.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
